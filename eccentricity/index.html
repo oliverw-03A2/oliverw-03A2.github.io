@@ -3,209 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shape Generator</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro:wght@400&display=swap">
+    <title>Shape Based on Eccentricity</title>
     <style>
-        body {
-            font-family: 'SF Pro', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f9f9f9;
-            color: #333;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        h2 {
-            font-size: 24px;
-            letter-spacing: 0.5px;
-            color: #2c3e50;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
             margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
         }
 
         label {
             font-size: 16px;
-            color: #333;
+            color: #666;
         }
 
-        .slider-container {
-            width: 300px;
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        #eccentricity {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 6px;
-            background: #ddd;
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            outline: none;
-            transition: background 0.3s ease;
-        }
-
-        #eccentricity::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #2980b9;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        #eccentricity::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background-color: #2980b9;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        #eccentricity:active::-webkit-slider-thumb {
-            background-color: #1f5c85;
         }
 
         button {
-            padding: 8px 20px;
+            padding: 8px 16px;
             font-size: 16px;
-            background-color: #2980b9;
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
-            font-family: 'SF Pro', sans-serif;
         }
 
         button:hover {
-            background-color: #3498db;
+            background-color: #0056b3;
         }
 
-        canvas {
-            border: none;
-            background-color: #fff;
-            cursor: grab;
-            margin-top: 20px;
+        .shape-container {
+            margin-top: 30px;
         }
 
-        .coordinates {
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        /* Watermark */
-        .watermark {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            font-size: 12px;
-            color: #999;
-        }
-
-        .watermark img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
+        svg {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <h2>Shape generator based on eccentricity</h2>
-    
-    <label for="eccentricity">Eccentricity:</label>
-    <div class="slider-container">
-        <input type="range" id="eccentricity" min="0" max="1" step="0.01" value="0.5">
-        <span id="eccentricityValue">0.5</span>
-    </div>
-    
-    <button onclick="drawShape()">Draw Shape</button>
-    
-    <canvas id="shapeCanvas" width="800" height="600"></canvas>
-    <div class="coordinates" id="coordinates">Coordinates: (0, 0)</div>
+    <div class="container">
+        <h1>Shapes based on Eccentricity (e)</h1>
+        <label for="eccentricity">Set Eccentricity (e):</label>
+        <input type="number" id="eccentricity" step="0.01" min="0" max="1" value="0">
+        <button onclick="updateShape()">Draw Shape</button>
 
-    <!-- Watermark -->
-    <div class="watermark">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo">
-        <span>Made by Apple</span>
+        <div class="shape-container">
+            <svg id="shapeSVG" width="500" height="500" viewBox="0 0 500 500">
+                <!-- Shape will be drawn here -->
+            </svg>
+        </div>
     </div>
 
     <script>
-        const canvas = document.getElementById('shapeCanvas');
-        const ctx = canvas.getContext('2d');
-        let offsetX = 0, offsetY = 0; // Track the current translation
-        let dragStartX = 0, dragStartY = 0; // Track the initial drag position
-        let isDragging = false;
+        function updateShape() {
+            const e = parseFloat(document.getElementById('eccentricity').value);
+            const svg = document.getElementById('shapeSVG');
+            svg.innerHTML = ''; // Clear any existing shapes
 
-        document.getElementById('eccentricity').addEventListener('input', function() {
-            document.getElementById('eccentricityValue').textContent = this.value;
-            drawShape();
-        });
-
-        // Start dragging
-        canvas.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            dragStartX = e.offsetX - offsetX;
-            dragStartY = e.offsetY - offsetY;
-            canvas.style.cursor = 'grabbing';
-        });
-
-        // Drag the canvas
-        canvas.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                offsetX = e.offsetX - dragStartX;
-                offsetY = e.offsetY - dragStartY;
-                drawShape();
+            if (e === 0) {
+                // Draw a circle (e = 0)
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", 250);
+                circle.setAttribute("cy", 250);
+                circle.setAttribute("r", 100);
+                circle.setAttribute("stroke", "black");
+                circle.setAttribute("stroke-width", 2);
+                circle.setAttribute("fill", "none");
+                svg.appendChild(circle);
+            } else if (e > 0 && e < 1) {
+                // Draw an ellipse (0 < e < 1)
+                const ellipse = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+                ellipse.setAttribute("cx", 250);
+                ellipse.setAttribute("cy", 250);
+                const rx = 100;
+                const ry = rx * Math.sqrt(1 - e * e); // based on ellipse eccentricity
+                ellipse.setAttribute("rx", rx);
+                ellipse.setAttribute("ry", ry);
+                ellipse.setAttribute("stroke", "black");
+                ellipse.setAttribute("stroke-width", 2);
+                ellipse.setAttribute("fill", "none");
+                svg.appendChild(ellipse);
+            } else if (e === 1) {
+                // Draw a parabola (e = 1)
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M 50 250 Q 250 0 450 250");
+                path.setAttribute("stroke", "black");
+                path.setAttribute("stroke-width", 2);
+                path.setAttribute("fill", "none");
+                svg.appendChild(path);
             }
-        });
-
-        // End dragging
-        canvas.addEventListener('mouseup', () => {
-            isDragging = false;
-            canvas.style.cursor = 'grab';
-        });
-
-        canvas.addEventListener('mouseleave', () => {
-            isDragging = false;
-            canvas.style.cursor = 'grab';
-        });
-
-        function drawShape() {
-            const eccentricity = parseFloat(document.getElementById('eccentricity').value);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Semi-major axis (fixed at 150)
-            const a = 150;
-            let b;
-
-            if (eccentricity > 0 && eccentricity < 1) {
-                b = Math.sqrt(a * a - (eccentricity * a) * (eccentricity * a));
-            }
-
-            ctx.save();
-            ctx.translate(canvas.width / 2 + offsetX, canvas.height / 2 + offsetY);
-            ctx.beginPath();
-
-            if (eccentricity > 0 && eccentricity < 1) {
-                ctx.ellipse(0, 0, a, b, 0, 0, 2 * Math.PI);
-                ctx.strokeStyle = 'blue';
-            }
-
-            ctx.stroke();
-            ctx.restore();
-
-            // Update coordinates
-            document.getElementById('coordinates').textContent = `Coordinates: (${(offsetX).toFixed(1)}, ${(offsetY).toFixed(1)})`;
         }
     </script>
 </body>
