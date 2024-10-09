@@ -5,29 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comet Behavior</title>
 
-    <!-- Importing MathJax for LaTeX rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- Importing Google Font Ndot57 -->
-    <link href="https://fonts.googleapis.com/css2?family=Ndot57&display=swap" rel="stylesheet">
-
+    <!-- Font-face definition to self-host Ndot57 font -->
     <style>
-        /* Applying the Ndot57 font */
+        @font-face {
+            font-family: 'Ndot57';
+            src: url('fonts/Ndot57.woff2') format('woff2'),
+                 url('fonts/Ndot57.woff') format('woff'),
+                 url('fonts/Ndot57.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Applying the custom font */
         body {
-            font-family: 'NDOT 47 (inspired by NOTHING)', sans-serif;
+            font-family: 'Ndot57', 'Arial', 'Helvetica', sans-serif;
             color: #f5f5f5;
             background-color: #101010;
             margin: 0;
             padding: 0 20px;
             line-height: 1.6;
-        }
-
-        /* Centered container with padding */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         h1, h2, h3 {
@@ -65,12 +61,10 @@
             margin-bottom: 10px;
         }
 
-        /* Custom styling for equations */
         .MathJax {
             color: #f5f5f5;
         }
 
-        /* Styling the links */
         a {
             color: #ffffff;
             text-decoration: none;
@@ -82,13 +76,17 @@
             border-bottom: 1px solid #c9c9c9;
         }
 
-        /* Simple footer */
         footer {
             text-align: center;
             color: #8f8f8f;
             margin-top: 40px;
         }
     </style>
+
+    <!-- Importing MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -152,11 +150,11 @@
 
         <h3>Oort Cloud</h3>
         <p>
-            The Oort Cloud, sometimes called the Öpik-Oort Cloud, is a distant, spherical shell surrounding the solar system, stretching from 2,000 to 100,000 AU from the Sun. It contains icy, comet-like bodies, and is the origin of long-period comets with orbits lasting over 200 years.
+            The Oort Cloud is a distant, spherical shell surrounding the solar system, stretching from 2,000 to 100,000 AU from the Sun. It contains icy, comet-like bodies, and is the origin of long-period comets with orbits lasting over 200 years.
         </p>
 
         <footer>
-            <p>Comet Behaviors - by Oliver Wang</p>
+            <p>Comet Behavior - Educational Resource</p>
         </footer>
     </div>
 </body>
