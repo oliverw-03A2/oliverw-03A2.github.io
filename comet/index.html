@@ -9,14 +9,12 @@
     <style>
         @font-face {
             font-family: 'Ndot57';
-            src: url('fonts/Ndot57.woff2') format('woff2'),
-                 url('fonts/Ndot57.woff') format('woff'),
-                 url('fonts/Ndot57.ttf') format('truetype');
+            src: url('Ndot57.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Applying the custom font */
+        /* Basic styles for body */
         body {
             font-family: 'Ndot57', 'Arial', 'Helvetica', sans-serif;
             color: #f5f5f5;
@@ -24,6 +22,29 @@
             margin: 0;
             padding: 0 20px;
             line-height: 1.6;
+        }
+
+        /* Styling for menu bar */
+        .menu-bar {
+            background-color: #202020;
+            overflow: hidden;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .menu-bar a {
+            color: #ffffff;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-bar a:hover {
+            background-color: #303030;
+            color: #c9c9c9;
         }
 
         h1, h2, h3 {
@@ -65,6 +86,7 @@
             color: #f5f5f5;
         }
 
+        /* Styling links */
         a {
             color: #ffffff;
             text-decoration: none;
@@ -89,6 +111,13 @@
 
 </head>
 <body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <a href="comet_behavior.html">Comet Behavior</a>
+        <a href="comet_gallery.html">Gallery of Images</a>
+        <a href="comet_anatomy.html">Comet Anatomy</a>
+    </div>
+
     <div class="container">
         <h1>Comet Behavior</h1>
 
@@ -154,7 +183,7 @@
         </p>
 
         <footer>
-            <p>Comet Behavior - Educational Resource</p>
+            <p>Comet Behavior by Oliver Wang</p>
         </footer>
     </div>
 </body>
