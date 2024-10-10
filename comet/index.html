@@ -5,46 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comet Behavior</title>
 
-    <!-- Font-face definition to self-host Ndot57 font -->
+    <!-- Importing MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Importing Google Font Ndot57 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ndot57&display=swap" rel="stylesheet">
+
     <style>
+        /* Applying the Ndot57 font */
         @font-face {
             font-family: 'Ndot57';
             src: url('Ndot57.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
-        }
 
-        /* Basic styles for body */
-        body {
-            font-family: 'Ndot57', 'Arial', 'Helvetica', sans-serif;
-            color: #f5f5f5;
-            background-color: #101010;
-            margin: 0;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-
-        /* Styling for menu bar */
-        .menu-bar {
-            background-color: #202020;
-            overflow: hidden;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .menu-bar a {
-            color: #ffffff;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: inline-block;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-        }
-
-        .menu-bar a:hover {
-            background-color: #303030;
-            color: #c9c9c9;
+        /* Centered container with padding */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         h1, h2, h3 {
@@ -82,11 +62,12 @@
             margin-bottom: 10px;
         }
 
+        /* Custom styling for equations */
         .MathJax {
             color: #f5f5f5;
         }
 
-        /* Styling links */
+        /* Styling the links */
         a {
             color: #ffffff;
             text-decoration: none;
@@ -98,26 +79,15 @@
             border-bottom: 1px solid #c9c9c9;
         }
 
+        /* Simple footer */
         footer {
             text-align: center;
             color: #8f8f8f;
             margin-top: 40px;
         }
     </style>
-
-    <!-- Importing MathJax for LaTeX rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 </head>
 <body>
-    <!-- Menu Bar -->
-    <div class="menu-bar">
-        <a href="comet_behavior.html">Comet Behavior</a>
-        <a href="comet_gallery.html">Gallery of Images</a>
-        <a href="comet_anatomy.html">Comet Anatomy</a>
-    </div>
-
     <div class="container">
         <h1>Comet Behavior</h1>
 
@@ -166,10 +136,10 @@
         </p>
 
         <h2>Comet Tails</h2>
-        <ul>
+        <p>
             <li><strong>Dust Tail:</strong> Formed by dust particles pushed away from the comet by solar radiation.</li>
             <li><strong>Ion Tail:</strong> Created by ionized gases being swept away by the solar wind.</li>
-        </ul>
+        </p>
 
         <h2>Solar System Regions</h2>
         <h3>Kuiper Belt</h3>
@@ -179,11 +149,31 @@
 
         <h3>Oort Cloud</h3>
         <p>
-            The Oort Cloud is a distant, spherical shell surrounding the solar system, stretching from 2,000 to 100,000 AU from the Sun. It contains icy, comet-like bodies, and is the origin of long-period comets with orbits lasting over 200 years.
+            The Oort Cloud, sometimes called the Öpik-Oort Cloud, is a distant, spherical shell surrounding the solar system, stretching from 2,000 to 100,000 AU from the Sun. It contains icy, comet-like bodies, and is the origin of long-period comets with orbits lasting over 200 years.
         </p>
+        
+        <h2>Comet Tail Colors</h2>
+        <p>
+            <li><strong>Red:</strong> A red ion tail typically suggests the presence of ionized gases such as carbon monoxide ions (CO⁺) and sometimes hydrogen ions (H₂O⁺). When these gases are exposed to solar ultraviolet radiation, they become ionized and emit light at specific wavelengths. For CO⁺, this ionization results in a red glow that can be detected in the visible spectrum.</li>
+        <p>    
+            <li><strong>Blue:</strong> A blue ion tail on a comet is mainly caused by ionized carbon monoxide (CO⁺). When solar ultraviolet radiation ionizes these molecules, they emit a blue glow.</li> 
+        <p>
+        <p>
+            <li><strong>Orange:</strong> An orange ion tail on a comet usually indicates the presence of ionized sodium (Na⁺). When sodium is ionized by solar ultraviolet radiation, it emits light in the orange-yellow part of the spectrum.Such tails are less common and can reveal specific details about the comet’s composition.</li>
+        <p>
+        <p>
+         <li><strong>Green:</strong> A green glow in a comet’s ion tail is often due to the presence of diatomic carbon (C₂) or cyanogen (CN) gas. When these molecules are exposed to ultraviolet light from the Sun, they absorb energy and emit green light. This green emission is usually seen in the coma rather than the tail itself, but as the gas disperses, it can extend into the ion tail.</li>
+        <p>
+        <p>
+        <li><strong>Yellow:</strong> A yellow ion tail is typically the result of the ionization of neutral sodium atoms (Na). When solar ultraviolet radiation ionizes sodium, it produces a yellowish glow. This tail is generally fainter than the more common blue or green ion tails, but it can become visible under certain conditions, especially when the comet is close to the Sun and the sodium becomes more active due to heating.</li>
+        <p>
+        <p>
+        <li><strong>White:</strong> A white ion tail appears when a mixture of different ions—like carbon dioxide (CO₂⁺), water (H₂O⁺), and carbon monoxide (CO⁺)—is present, each contributing its emission lines. The combination of these different ion emissions can create a more neutral or white appearance in the tail. This tail is often less distinct in color but can be very bright and extensive, especially when the solar wind interacts strongly with the comet’s ionized gases.</li> 
+        <p>
+            
 
         <footer>
-            <p>Comet Behavior by Oliver Wang</p>
+            <p>Comet Behaviors by Hayden Chen and Oliver Wang</p>
         </footer>
     </div>
 </body>
