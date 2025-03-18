@@ -1,111 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Minimalist Site</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f7;
-        }
-        header {
-            background-color: #f8f8f8;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header nav a {
-            text-decoration: none;
-            color: #333;
-            margin: 0 15px;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        header nav a:hover {
-            color: #0071e3;
-        }
-        .hero-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 100px 20px;
-            background-color: white;
-        }
-        .hero-section h1 {
-            font-size: 60px;
-            font-weight: bold;
-            margin: 0;
-            color: #1d1d1f;
-        }
-        .hero-section p {
-            font-size: 24px;
-            color: #6e6e73;
-            margin: 20px 0 40px;
-        }
-        .hero-section a {
-            background-color: #0071e3;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 40px; /* Increased corner radius */
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .hero-section a:hover {
-            background-color: #005bb5;
-        }
-        footer {
-            background-color: #f8f8f8;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6e6e73;
-        }
-        footer a {
-            color: #0071e3;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Pursuit of Prosperity | Migration Feature</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: #0a0a0c;
+      color: #e6e6e6;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .background-effects {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    
+    .background-blob-1 {
+      position: absolute;
+      width: 60vw;
+      height: 60vh;
+      top: 20%;
+      left: 10%;
+      background: radial-gradient(circle, rgba(75,0,0,0.5) 0%, rgba(20,0,0,0) 70%);
+      filter: blur(120px);
+      animation: move 45s infinite alternate ease-in-out;
+    }
+    
+    .background-blob-2 {
+      position: absolute;
+      width: 70vw;
+      height: 70vh;
+      top: 40%;
+      left: 50%;
+      background: radial-gradient(circle, rgba(0,0,75,0.5) 0%, rgba(0,0,20,0) 70%);
+      filter: blur(150px);
+      animation: move 60s infinite alternate-reverse ease-in-out;
+    }
+    
+    @keyframes move {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(5%, 5%); }
+      50% { transform: translate(-5%, 8%); }
+      75% { transform: translate(8%, -5%); }
+      100% { transform: translate(-3%, -3%); }
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+      background: linear-gradient(to right, #e6e6e6, #999);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #b3b3b3;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+    
+    .nav-menu {
+      position: fixed;
+      top: 30%;
+      right: -300px;
+      width: 220px;
+      background: rgba(10, 10, 12, 0.5);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 12px 0 0 12px;
+      padding: 20px;
+      transition: right 0.5s ease;
+      z-index: 10;
+      opacity: 0;
+    }
+    
+    .nav-menu.visible {
+      right: 0;
+      opacity: 0.8;
+    }
+    
+    .nav-menu ul {
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin: 15px 0;
+    }
+    
+    .nav-menu a {
+      color: #e6e6e6;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+    
+    .nav-menu a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu .active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .content {
+      padding: 80px 0;
+    }
+    
+    .article-section {
+      margin-bottom: 120px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    
+    .article-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .article-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+    
+    .article-section p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+    
+    .quote {
+      font-style: italic;
+      border-left: 4px solid rgba(255, 255, 255, 0.3);
+      padding-left: 20px;
+      margin: 30px 0;
+      font-size: 1.2rem;
+    }
+    
+    .image-placeholder {
+      width: 100%;
+      height: 400px;
+      background-color: rgba(255, 255, 255, 0.05);
+      margin: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 1.2rem;
+      border-radius: 8px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .credits {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .credits h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .credits p {
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
+  <div class="background-effects">
+    <div class="background-blob-1"></div>
+    <div class="background-blob-2"></div>
+  </div>
 
-    <header>
-        <nav>
-            <div>
-                <a href="#">Logo</a>
-            </div>
-            <div>
-                <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">Store</a>
-                <a href="#">Support</a>
-            </div>
-        </nav>
-    </header>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>A Pursuit of Prosperity</h1>
+      <p>Migration from Yugoslavia to West Germany, across the Iron Curtain</p>
+      <p>By Oliver W.</p>
+    </div>
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19 12L12 19L5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
 
-    <section class="hero-section">
-        <h1>Our Latest Product</h1>
-        <p>The best experience ever, crafted just for you.</p>
-        <a href="#">Learn More</a>
-    </section>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#introduction" class="active">Introduction</a></li>
+      <li><a href="#iron-curtain">The Iron Curtain</a></li>
+      <li><a href="#pursuit">A Pursuit of Prosperity</a></li>
+      <li><a href="#across-continent">Across a Continent</a></li>
+      <li><a href="#impact">The Impact</a></li>
+      <li><a href="#return">Return Migration</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+      <li><a href="#works-cited">Works Cited</a></li>
+    </ul>
+  </nav>
 
-    <footer>
-        <p>&copy; 2024 Your Company. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
+  <div class="container">
+    <div class="content">
+      <section id="introduction" class="article-section">
+        <div class="quote">
+          "At first the worker trains departed only twice a week. Then they became as frequent as every day, and even twice a day […]. In this way, hundreds of thousands of people who did not know each other came together, bound by the same fate. […] This is our story; it's the story of our people."
+        </div>
+        <p>Many might assume a 1960s West German factory floor would be staffed primarily by German workers. However, the reality was far different. Alongside German workers stood newcomers from Yugoslavia (present-day Bosnia and Herzegovina, Croatia, Macedonia, Montenegro, Serbia, and Slovenia), all drawn by the promise of prosperity.</p>
+      </section>
 
-</body>
-</html>
+      <section id="iron-curtain" class="article-section">
+        <h2>The Iron Curtain</h2>
+        <p>An ideological and political barrier across Europe, the Iron Curtain divided the continent into two – a communist side (Eastern Europe) and a non-communist side (Western Europe). Eastern Europe, which was under Soviet control, imposed strict migration controls, which led to Eastern Europeans from countries such as Poland and Czechoslovakia not being able to pursue economic opportunities in the West, which was under influence of the United States, leading to many Western countries adopting capitalist economic systems and experiencing rapid economic growth. However, one state stood apart – Yugoslavia. As a non-aligned socialist state, it was free from the shackles of Soviet migration control, and could send a portion of its population as guest workers to Western Europe.</p>
+        
+        <p>In a Europe starkly divided by the Iron Curtain, these Yugoslav workers did not simply embody the solution to labor shortages – they showed how nations could transcend Cold War barriers. As Western Europe recovered from its post-second world war damage, industrial factories faced severe labor shortages. Thus, under the guest worker agreement signed between West Germany and Yugoslavia, thousands of Yugoslavs migrated to West Germany under the identity of a simple "guest-worker". However, these guest workers were of much larger significance than their title suggested. In the midst of geopolitical tensions, these labor migrants shaped economic landscapes, sparking a complex story of opportunity, hardship, and geopolitics across the Cold War divide.</p>
+        
+        <p>Mirjana Petrović, one of the guest workers – gastarbeiters, as they were called in German, pursued prosperity by migrating from Yugoslavia to West Germany. The promise of stable employment, higher wages, and better living conditions stood in stark contrast to the industrial underdevelopment and economic stagnation she faced in Yugoslavia. Her experience mirrored that of many others who left under the same agreement, a part of West Germany's broader strategy to meet the increasing demand for human labor.</p>
+        
+        <div class="image-placeholder">Image: Map of Europe showing the Iron Curtain division</div>
+      </section>
+
+      <section id="pursuit" class="article-section">
+        <h2>A Pursuit of Prosperity</h2>
+        <p>Western Europe's demand for labor surged in the post-war period (after 1945) due to two key driving forces: post-war reconstruction and industrial booms. In West Germany, the "economic miracle" (Wirtschaftswunder) saw factories' demands for human labor skyrocket, as the industrial output soared with the state's GDP growing at around eight percent per year in the 1950s and 1960s. This left many factories empty-handed, particularly those in manufacturing and construction sectors.</p>
+        
+        <p>This brings us back to Yugoslavia, the Eastern European country where citizens had the most freedom in terms of migration. Through the aforementioned bilateral agreement with West Germany, Yugoslavia became a key source of guest workers, or gastarbeiters. This agreement allowed thousands of Yugoslavs to seek work in Germany, offering them the promise of better wages (estimated to be 3600 U.S. dollars per adult and 500 U.S dollars per child, according to Pranay Gupte from the New York Times), and living conditions better than those available back home, where the economy was still struggling to recover.</p>
+        
+        <p>One could say that Yugoslavia leveraged its workforce as an exportable resource, effectively trading workers for cash, a strategy that had never been successful in the past. However, this time, migrant workers carried their dreams for prosperity and freedom across the border, and both benefiting the Yugoslavian people and government, as well as meeting the West German demand for employment.</p>
+        
+        <div class="image-placeholder">Image: Workers boarding trains to West Germany</div>
+      </section>
+
+      <section id="across-continent" class="article-section">
+        <h2>Across a Continent</h2>
+        <p>For Petrović and thousands of other Yugoslavs, the decision to leave home was not an easy choice. However, the economic necessity often outweighed the loss of family and familiar surroundings. The many who took the gamble of migrating as a guestworker to Germany waited months, and sometimes even years, to complete application forms, skill assessments, and health checks before finally being able to embark on the journey across Europe, but the challenges of this journey did not end there.</p>
+        
+        <p>For those who entered Germany, whether it be by train, plane, boat, or bus, the initial experience was often overwhelming, with harsh living conditions, rather extreme weather, and most importantly, a language barrier. According to an anonymous interviewee named Mr. G, workers often "lived in barracks that were set up on the site where the materials were stored", and the coldness was "[much worse.] Especially in the first winter, because we weren't used to that at all. After the first winter, we got a room in Mülheim. […] It wasn't much better than the barracks, but it was warmer".</p>
+        
+        <p>The guestworkers' initial experiences in West Germany were marked by isolation and discomfort, but their contributions proved vital in the nation's post-war economic expansion. After all, these workers were not just filling labor gaps; they were laying the foundations for a thriving economy. Over time, as workers like Petrović adapted to their new environment, they also brought with them a sense of community, language, culture, and resilience. Although their families often remained behind in Yugoslavia, Yugoslav workers would send home remittances, which boosted the Yugoslavian economy and alleviated poverty, which, for many, was worth suffering the harsh conditions while participating in the Gastarbeiter program.</p>
+        
+        <div class="image-placeholder">Image: Gastarbeiter living conditions in West Germany</div>
+      </section>
+
+      <section id="impact" class="article-section">
+        <h2>The Impact of the Influx</h2>
+        <p>The mass influx of Yugoslav workers into West Germany had far-reaching consequences, both socially and politically, and both
