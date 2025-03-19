@@ -162,8 +162,8 @@
     }
     .left-text-right-image .text-content,
     .right-text-left-image .text-content,
-    .left-text-right-image img,
-    .right-text-left-image img {
+    .left-text-right-image .image-container,
+    .right-text-left-image .image-container {
       flex: 1;
       min-width: 280px;
     }
@@ -177,68 +177,42 @@
       margin-bottom: 20px;
     }
     
-    /* Navbar & Menu Styles */
+    /* Image caption styles */
+    .image-container {
+      position: relative;
+      margin-bottom: 15px;
+    }
+    .image-caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #999;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    /* Navbar & Menu Styles - Updated to left side */
     .navbar {
       position: fixed;
-      right: 20px;
+      left: 20px;
       top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
       z-index: 1000;
-      cursor: pointer;
-      overflow: visible;
+      text-align: left;
+      background: transparent;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    .hamburger {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       transition: opacity 0.3s ease;
     }
-    .hamburger span {
-      display: block;
-      height: 3px;
-      width: 25px;
-      margin: 3px auto;
-      background: #e0e0e0;
-      transition: background 0.3s;
-    }
     .menu {
-      position: absolute;
-      right: 60px;
-      top: 50%;
-      transform: translateY(-50%) scale(0);
-      transform-origin: right center;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 10px;
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      white-space: nowrap;
       list-style: none;
       margin: 0;
-    }
-    .navbar:hover .menu {
-      transform: translateY(-50%) scale(1);
-      opacity: 1;
-    }
-    .navbar:hover .hamburger {
-      opacity: 0;
+      padding: 0;
     }
     .menu li {
-      margin: 10px 0;
+      margin: 15px 0;
     }
     .menu li a {
       text-decoration: none;
-      color: #e0e0e0;
+      color: #999;
       font-size: 1rem;
       transition: color 0.3s;
     }
@@ -249,11 +223,6 @@
 </head>
 <body>
   <nav class="navbar" id="navbar">
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
     <ul class="menu">
       <!-- Navigation links will be dynamically inserted here -->
     </ul>
@@ -265,7 +234,7 @@
     <div class="blob blob3"></div>
   </div>
   
-  <section class="hero">
+  <section class="hero" id="hero">
     <img src="hero-image1.png" alt="Hero Image">
     <div class="overlay"></div>
     <div class="hero-text">
@@ -278,79 +247,106 @@
   <main class="content">
     <section class="left-text-right-image">
       <div class="text-content">
-        <blockquote>“At first the worker trains departed only twice a week. Then they became as frequent as every day, and even twice a day […]. In this way, hundreds of thousands of people who did not know each other came together, bound by the same fate. […] This is our story; it’s the story of our people.” (“Memoirs in My Suitcase”)</blockquote>
-        <p>Many might assume a 1960s West German factory floor would be staffed primarily by German workers. However, the reality was far different. Alongside German workers stood newcomers from Yugoslavia (present-day Bosnia and Herzegovina, Croatia, Macedonia, Montenegro, Serbia, and Slovenia), all drawn by the promise of prosperity (“The Breakup”).</p>
+        <blockquote>"At first the worker trains departed only twice a week. Then they became as frequent as every day, and even twice a day […]. In this way, hundreds of thousands of people who did not know each other came together, bound by the same fate. […] This is our story; it's the story of our people." ("Memoirs in My Suitcase")</blockquote>
+        <p>Many might assume a 1960s West German factory floor would be staffed primarily by German workers. However, the reality was far different. Alongside German workers stood newcomers from Yugoslavia (present-day Bosnia and Herzegovina, Croatia, Macedonia, Montenegro, Serbia, and Slovenia), all drawn by the promise of prosperity ("The Breakup").</p>
       </div>
-      <img src="image1.png" alt="Workers traveling by train">
+      <div class="image-container">
+        <img src="image1.png" alt="Workers traveling by train">
+        <div class="image-caption">Yugoslav workers boarding trains bound for West Germany in the 1960s</div>
+      </div>
     </section>
 
     <section class="right-text-left-image">
       <div class="text-content">
         <h2>The Iron Curtain</h2>
-        <p>An ideological and political barrier across Europe, the Iron Curtain divided the continent into two – a communist side (Eastern Europe) and a non-communist side (Western Europe). Eastern Europe, which was under Soviet control, imposed strict migration controls, which led to Eastern Europeans from countries such as Poland and Czechoslovakia not being able to pursue economic opportunities in the West, which was under influence of the United States, leading to many Western countries adopting capitalist economic systems and experiencing rapid economic growth. However, one state stood apart – Yugoslavia. As a non-aligned socialist state, it was free from the shackles of Soviet migration control, and could send a portion of its population as guest workers to Western Europe (“From Alignment to Non-Alignment”).</p>
+        <p>An ideological and political barrier across Europe, the Iron Curtain divided the continent into two – a communist side (Eastern Europe) and a non-communist side (Western Europe). Eastern Europe, which was under Soviet control, imposed strict migration controls, which led to Eastern Europeans from countries such as Poland and Czechoslovakia not being able to pursue economic opportunities in the West, which was under influence of the United States, leading to many Western countries adopting capitalist economic systems and experiencing rapid economic growth. However, one state stood apart – Yugoslavia. As a non-aligned socialist state, it was free from the shackles of Soviet migration control, and could send a portion of its population as guest workers to Western Europe ("From Alignment to Non-Alignment").</p>
       </div>
-      <img src="image2.png" alt="Iron Curtain map">
+      <div class="image-container">
+        <img src="image2.png" alt="Iron Curtain map">
+        <div class="image-caption">Map showing the division of Europe by the Iron Curtain during the Cold War</div>
+      </div>
     </section>
 
     <section class="left-text-right-image">
       <div class="text-content">
-        <p>In a Europe starkly divided by the Iron Curtain, these Yugoslav workers did not simply embody the solution to labor shortages – they showed how nations could transcend Cold War barriers. As Western Europe recovered from its post-second world war damage, industrial factories faced severe labor shortages. Thus, under the guest worker agreement signed between West Germany and Yugoslavia, thousands of Yugoslavs migrated to West Germany under the identity of a simple “guest-worker”. However, these guest workers were of much larger significance than their title suggested. In the midst of geopolitical tensions, these labor migrants shaped economic landscapes, sparking a complex story of opportunity, hardship, and geopolitics across the Cold War divide.</p>
+        <p>In a Europe starkly divided by the Iron Curtain, these Yugoslav workers did not simply embody the solution to labor shortages – they showed how nations could transcend Cold War barriers. As Western Europe recovered from its post-second world war damage, industrial factories faced severe labor shortages. Thus, under the guest worker agreement signed between West Germany and Yugoslavia, thousands of Yugoslavs migrated to West Germany under the identity of a simple "guest-worker". However, these guest workers were of much larger significance than their title suggested. In the midst of geopolitical tensions, these labor migrants shaped economic landscapes, sparking a complex story of opportunity, hardship, and geopolitics across the Cold War divide.</p>
       </div>
-      <img src="image2-1.png" alt="Yugoslavian President Josip Broz Tito and German Chancellor Willy Brandt">
+      <div class="image-container">
+        <img src="image2-1.png" alt="Yugoslavian President Josip Broz Tito and German Chancellor Willy Brandt">
+        <div class="image-caption">Yugoslavian President Josip Broz Tito meeting with German Chancellor Willy Brandt</div>
+      </div>
     </section>
 
     <section class="right-text-left-image">
       <div class="text-content">
-        <p>Mirjana Petrović, one of the guest workers – gastarbeiters, as they were called in German, pursued prosperity by migrating from Yugoslavia to West Germany. The promise of stable employment, higher wages, and better living conditions stood in stark contrast to the industrial underdevelopment and economic stagnation she faced in Yugoslavia. Her experience mirrored that of many others who left under the same agreement, a part of West Germany’s broader strategy to meet the increasing demand for human labor (Flint).</p>
+        <p>Mirjana Petrović, one of the guest workers – gastarbeiters, as they were called in German, pursued prosperity by migrating from Yugoslavia to West Germany. The promise of stable employment, higher wages, and better living conditions stood in stark contrast to the industrial underdevelopment and economic stagnation she faced in Yugoslavia. Her experience mirrored that of many others who left under the same agreement, a part of West Germany's broader strategy to meet the increasing demand for human labor (Flint).</p>
       </div>
-      <img src="image2-2.png" alt="A Yugoslavian gastarbeiter">
+      <div class="image-container">
+        <img src="image2-2.png" alt="A Yugoslavian gastarbeiter">
+        <div class="image-caption">A Yugoslav gastarbeiter at work in a West German factory</div>
+      </div>
     </section>
 
     <section class="top-text-down-image">
       <div class="text-content">
         <h2>A Pursuit of Prosperity</h2>
-        <p>Western Europe’s demand for labor surged in the post-war period (after 1945) due to two key driving forces: post-war reconstruction and industrial booms. In West Germany, the “economic miracle” (Wirtschaftswunder) saw factories’ demands for human labor skyrocket, as the industrial output soared with the state’s GDP growing at around eight percent per year in the 1950s and 1960s (Ritschl and Eichengreen). This left many factories empty-handed, particularly those in manufacturing and construction sectors.</p>
+        <p>Western Europe's demand for labor surged in the post-war period (after 1945) due to two key driving forces: post-war reconstruction and industrial booms. In West Germany, the "economic miracle" (Wirtschaftswunder) saw factories' demands for human labor skyrocket, as the industrial output soared with the state's GDP growing at around eight percent per year in the 1950s and 1960s (Ritschl and Eichengreen). This left many factories empty-handed, particularly those in manufacturing and construction sectors.</p>
         <p>This brings us back to Yugoslavia, the Eastern European country where citizens had the most freedom in terms of migration. Through the aforementioned bilateral agreement with West Germany, Yugoslavia became a key source of guest workers, or gastarbeiters (Filip). This agreement allowed thousands of Yugoslavs to seek work in Germany, offering them the promise of better wages (estimated to be 3600 U.S. dollars per adult and 500 U.S dollars per child, according to Pranay Gupte from the New York Times), and living conditions better than those available back home, where the economy was still struggling to recover. (Martinović).</p>
         <p>One could say that Yugoslavia leveraged its workforce as an exportable resource, effectively trading workers for cash, a strategy that had never been successful in the past. However, this time, migrant workers carried their dreams for prosperity and freedom across the border, both benefiting the Yugoslavian people and government, as well as meeting the West German demand for employment.</p>
       </div>
-      <img src="image3.png" alt="West German factory workers">
+      <div class="image-container">
+        <img src="image3.png" alt="West German factory workers">
+        <div class="image-caption">Yugoslav and German workers side by side during West Germany's economic miracle</div>
+      </div>
     </section>
 
     <section class="left-text-right-image">
       <div class="text-content">
         <h2>Across a Continent</h2>
-        <p>For Petrović and thousands of other Yugoslavs, the decision to leave home was not an easy choice. However, the economic necessity often outweighed the loss of family and familiar surroundings. The many who took the gamble of migrating as a guestworker to Germany waited months, and sometimes even years, to complete application forms, skill assessments, and health checks before finally being able to embark on the journey across Europe, but the challenges of this journey did not end there. For those who entered Germany, whether it be by train, plane, boat, or bus, the initial experience was often overwhelming, with harsh living conditions, rather extreme weather, and most importantly, a language barrier. According to an anonymous interviewee named Mr. G, workers often “lived in barracks that were set up on the site where the materials were stored”, and the coldness was “[much worse.] Especially in the first winter, because we weren't used to that at all. After the first winter, we got a room in Mülheim. […] It wasn't much better than the barracks, but it was warmer” (“Zeitzeugen-Interview”).</p>
+        <p>For Petrović and thousands of other Yugoslavs, the decision to leave home was not an easy choice. However, the economic necessity often outweighed the loss of family and familiar surroundings. The many who took the gamble of migrating as a guestworker to Germany waited months, and sometimes even years, to complete application forms, skill assessments, and health checks before finally being able to embark on the journey across Europe, but the challenges of this journey did not end there. For those who entered Germany, whether it be by train, plane, boat, or bus, the initial experience was often overwhelming, with harsh living conditions, rather extreme weather, and most importantly, a language barrier. According to an anonymous interviewee named Mr. G, workers often "lived in barracks that were set up on the site where the materials were stored", and the coldness was "[much worse.] Especially in the first winter, because we weren't used to that at all. After the first winter, we got a room in Mülheim. […] It wasn't much better than the barracks, but it was warmer" ("Zeitzeugen-Interview").</p>
       </div>
-      <img src="image4.png" alt="Migrant workers departing in a train station">
+      <div class="image-container">
+        <img src="image4.png" alt="Migrant workers departing in a train station">
+        <div class="image-caption">Yugoslav workers saying goodbye to families at a train station before departing for West Germany</div>
+      </div>
     </section>
 
     <section class="right-text-left-image">
       <div class="text-content">
-        <p>The guestworkers’ initial experiences in West Germany were marked by isolation and discomfort, but their contributions proved vital in the nation’s post-war economic expansion. After all, these workers were not just filling labor gaps; they were laying the foundations for a thriving economy. Over time, as workers like Petrović adapted to their new environment, they also brought with them a sense of community, language, culture, and resilience. Although their families often remained behind in Yugoslavia, Yugoslav workers would send home remittances, which boosted the Yugoslavian economy and alleviated poverty, which, for many, was worth suffering the harsh conditions while participating in the Gastarbeiter program.</p>
+        <p>The guestworkers' initial experiences in West Germany were marked by isolation and discomfort, but their contributions proved vital in the nation's post-war economic expansion. After all, these workers were not just filling labor gaps; they were laying the foundations for a thriving economy. Over time, as workers like Petrović adapted to their new environment, they also brought with them a sense of community, language, culture, and resilience. Although their families often remained behind in Yugoslavia, Yugoslav workers would send home remittances, which boosted the Yugoslavian economy and alleviated poverty, which, for many, was worth suffering the harsh conditions while participating in the Gastarbeiter program.</p>
       </div>
-      <img src="image4-2.png" alt="A depiction of gastarbeiters, generate by DALL-E 3">
+      <div class="image-container">
+        <img src="image4-2.png" alt="A depiction of gastarbeiters, generate by DALL-E 3">
+        <div class="image-caption">Artistic depiction of gastarbeiters in their dormitory accommodations (generated by DALL-E 3)</div>
+      </div>
     </section>
 
     <section class="left-text-right-image">
       <div class="text-content">
         <h2>The Impact of the Influx</h2>
-        <p>The mass influx of Yugoslav workers into West Germany had far-reaching consequences, both socially and politically, and both positive and negative. For Germany, the Gastarbeiter program solved immediate labor shortages, contributing significantly to the Wirtschaftswunder, Germany’s "economic miracle." However, the program also revealed the complex realities of immigration policies. Yugoslav workers, who were not treated as permanent residents, lived in a limbo - neither fully integrated nor expected to stay permanently. Many workers lived in substandard housing, often in isolated industrial areas far from the urban centers, and faced discriminatory attitudes from both their employers and the general population. After all, Germans were “willing to tolerate the Gastarbeiter as workers, a mobile labor force, especially since the Gastarbeiter enter the lowest levels of the work force and release Germans to rise in income and work position. German society [was] not willing to look upon these migrants as additions to German society to be integrated into the fabric of that culture” (Roggenkamp).</p>
+        <p>The mass influx of Yugoslav workers into West Germany had far-reaching consequences, both socially and politically, and both positive and negative. For Germany, the Gastarbeiter program solved immediate labor shortages, contributing significantly to the Wirtschaftswunder, Germany's "economic miracle." However, the program also revealed the complex realities of immigration policies. Yugoslav workers, who were not treated as permanent residents, lived in a limbo - neither fully integrated nor expected to stay permanently. Many workers lived in substandard housing, often in isolated industrial areas far from the urban centers, and faced discriminatory attitudes from both their employers and the general population. After all, Germans were "willing to tolerate the Gastarbeiter as workers, a mobile labor force, especially since the Gastarbeiter enter the lowest levels of the work force and release Germans to rise in income and work position. German society [was] not willing to look upon these migrants as additions to German society to be integrated into the fabric of that culture" (Roggenkamp).</p>
       </div>
-      <img src="image5.png" alt="DALL-E portrays a German factory production line">
+      <div class="image-container">
+        <img src="image5.png" alt="DALL-E portrays a German factory production line">
+        <div class="image-caption">German factory production line with Yugoslav workers (artistic representation)</div>
+      </div>
     </section>
 
     <section class="right-text-left-image">
       <div class="text-content">
-        <p>Despite these challenges, many guestworkers sought to improve their position in German society. Some took part in labor strikes, while others began to organize for better living conditions and higher wages (“Strike at Pierburg”). Their presence had profound implications for the labor market and set the stage for future migration trends pursuing economic stability and prosperity. Over time, some of these workers were able to bring their families to Germany, permanently altering the demographic makeup of the nation and contributing to its multicultural identity, and the legacy of the guest worker program continues to influence contemporary discussions about immigration and integration in Europe.</p>
+        <p>Despite these challenges, many guestworkers sought to improve their position in German society. Some took part in labor strikes, while others began to organize for better living conditions and higher wages ("Strike at Pierburg"). Their presence had profound implications for the labor market and set the stage for future migration trends pursuing economic stability and prosperity. Over time, some of these workers were able to bring their families to Germany, permanently altering the demographic makeup of the nation and contributing to its multicultural identity, and the legacy of the guest worker program continues to influence contemporary discussions about immigration and integration in Europe.</p>
       </div>
-      <img src="image5-2.png" alt="A contemporary German labor strike, inspired by the Gastarbeiter labor strikes">
+      <div class="image-container">
+        <img src="image5-2.png" alt="A contemporary German labor strike, inspired by the Gastarbeiter labor strikes">
+        <div class="image-caption">Labor strike organized by gastarbeiters demanding better working conditions</div>
+      </div>
     </section>
 
     <section class="top-text-down-image">
       <div class="text-content">
         <h2>The Return Migration</h2>
         <p>For many Yugoslav workers, the journey back to their hometown was a long-awaited conclusion to their migration story. They returned with savings, new skills, and experiences that had a lasting impact on Yugoslav society. Petrović, like many others, brought back not only financial contributions but also new perspectives on work, life, and the world beyond her village.</p>
-        <p>However, this “reintegration into Yugoslavia” was not entirely successful. While some guest workers managed to capitalize on their time in Germany and establish a better life upon their return, others faced difficulties reintegrating into Yugoslav society. The transition from the highly structured environment of factory work in West Germany to the rural, carefree life of Yugoslavia was not always smooth, and the prosperity they had helped generate in Germany did not always translate into immediate economic improvements back home, as the political and economic systems in Yugoslavia were still dealing with their own challenges.</p>
+        <p>However, this "reintegration into Yugoslavia" was not entirely successful. While some guest workers managed to capitalize on their time in Germany and establish a better life upon their return, others faced difficulties reintegrating into Yugoslav society. The transition from the highly structured environment of factory work in West Germany to the rural, carefree life of Yugoslavia was not always smooth, and the prosperity they had helped generate in Germany did not always translate into immediate economic improvements back home, as the political and economic systems in Yugoslavia were still dealing with their own challenges.</p>
       </div>
     </section>
 
@@ -358,14 +354,17 @@
       <div class="text-content">
         <p>Additionally, the Yugoslav Wars began in 1991, a time where many guest workers finally decided to return home, and their hometown was once again corrupt, this time by many different states, struggling for independence, and more than 100,000 people embarked (once again) on a journey to flee their homeland (United Nations).</p>
       </div>
-      <img src="image6.png" alt="The Yugoslav Wars">
+      <div class="image-container">
+        <img src="image6.png" alt="The Yugoslav Wars">
+        <div class="image-caption">Aftermath of conflict during the Yugoslav Wars (1991-2001)</div>
+      </div>
     </section>
 
     <section class="top-text-down-image">
       <div class="text-content">
         <h2> A Bittersweet Conclusion</h2>
         <p>The Yugoslav guest workers were more than just a solution to West Germany's labor shortage - they were part of a broader historical process that transcended political borders and the ideological divides of the Cold War. While the Yugoslav experience in West Germany was marked by hardship and alienation, it also paved the way for economic and cultural exchanges that enriched both societies. The Gastarbeiter program, and the Yugoslav migration specifically, served as an early example of how migration could both shape and reflect the complexities of Cold War geopolitics. The long-term legacy of these guestworkers is visible today in the multicultural landscape of modern Europe, where migrant labor continues to be integral to economic and social development.</p>
-        <p>Through their struggles, resilience, and contributions, workers like Mirjana Petrović not only transformed Germany’s industrial landscape but also became an enduring symbol of transnational solidarity in a divided world.</p>
+        <p>Through their struggles, resilience, and contributions, workers like Mirjana Petrović not only transformed Germany's industrial landscape but also became an enduring symbol of transnational solidarity in a divided world.</p>
       </div>
     </section>
   </main>
@@ -376,6 +375,7 @@
   
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Add navigation links
       const sections = document.querySelectorAll('.content section');
       const navList = document.querySelector('#navbar .menu');
       sections.forEach(section => {
@@ -394,6 +394,30 @@
           navList.appendChild(li);
         }
       });
+      
+      // Handle navbar visibility based on scroll position
+      const navbar = document.getElementById('navbar');
+      const ironCurtainSection = document.getElementById('the-iron-curtain');
+      const heroSection = document.getElementById('hero');
+      
+      function handleScroll() {
+        // Get positions
+        const ironCurtainRect = ironCurtainSection ? ironCurtainSection.getBoundingClientRect() : null;
+        const heroRect = heroSection.getBoundingClientRect();
+        
+        // Check if "The Iron Curtain" section is intersecting with hero
+        if (ironCurtainRect && heroRect.bottom > ironCurtainRect.top) {
+          navbar.style.opacity = '0';
+        } else {
+          navbar.style.opacity = '1';
+        }
+      }
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      
+      // Initial check
+      setTimeout(handleScroll, 1000); // Delay to ensure elements are properly rendered
     });
   </script>
 </body>
