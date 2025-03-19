@@ -228,96 +228,6 @@
       margin-bottom: 10px;
       text-align: justify;
     }
-    /* Timeline Section Styles */
-    .timeline-section {
-      padding: 40px 20px;
-      position: relative;
-    }
-    .timeline-section h2 {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .timeline {
-      position: relative;
-      margin: 0 auto;
-      padding: 20px 0;
-      width: 90%;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #444;
-      transform: translateX(-50%);
-    }
-    .timeline-item {
-      position: relative;
-      width: 45%;
-      padding: 20px;
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease-out;
-    }
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .timeline-item:nth-child(odd) {
-      left: 0;
-      text-align: right;
-    }
-    .timeline-item:nth-child(even) {
-      left: 55%;
-      text-align: left;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #e0e0e0;
-      border: 4px solid #444;
-      z-index: 1;
-    }
-    .timeline-item:nth-child(odd)::before {
-      right: -10px;
-    }
-    .timeline-item:nth-child(even)::before {
-      left: -10px;
-    }
-    .timeline-date {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #bbb;
-      margin-bottom: 10px;
-    }
-    .timeline-content {
-      background: #222;
-      padding: 15px;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    @media screen and (max-width: 768px) {
-      .timeline-item,
-      .timeline-item:nth-child(even),
-      .timeline-item:nth-child(odd) {
-        width: 90%;
-        left: 5% !important;
-        text-align: left;
-      }
-      .timeline::before {
-        left: 20px;
-      }
-      .timeline-item::before {
-        left: -30px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -386,79 +296,6 @@
       </div>
     </section>
 
-    <!-- Timeline Section as a vertical timeline -->
-    <section class="timeline-section top-text-down-image">
-      <div class="text-content">
-        <h2>Timeline: Yugoslav Guest Workers in Germany</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">1950s</div>
-            <div class="timeline-content">
-              <h3>Beginnings of Labor Migration</h3>
-              <p>In the postwar years, West Germany launched its early guest worker programs—initially drawing workers from countries like Italy and Turkey—to meet booming industrial needs. Migration from Yugoslavia was limited during this period but set the stage for later recruitment.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Late 1960s</div>
-            <div class="timeline-content">
-              <h3>Formal Recruitment Begins</h3>
-              <p>West Germany and Yugoslavia entered into bilateral agreements that opened the door for Yugoslav citizens to work in Germany. This marked the start of a structured recruitment program, integrating Yugoslav workers into the broader Gastarbeiter initiative.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Early 1970s</div>
-            <div class="timeline-content">
-              <h3>Peak Influx and Temporary Status</h3>
-              <p>With the new agreements in place, a significant wave of Yugoslav workers arrived. Although intended as temporary labor, many began establishing families and settling in Germany, blurring the lines between temporary and permanent residence.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">1973</div>
-            <div class="timeline-content">
-              <h3>The Oil Crisis and a Shift in Policy</h3>
-              <p>The oil crisis led to an abrupt halt in the recruitment of guest workers across all sectors. For Yugoslav workers, this meant that many who had come expecting a brief stint in Germany found themselves in a de facto permanent situation.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">1980s</div>
-            <div class="timeline-content">
-              <h3>Rising Calls for Integration and Legal Recognition</h3>
-              <p>Despite being classified as temporary workers by law, the long-term presence of Yugoslav guest workers spurred debates about rights and integration. Discussions in this era laid the groundwork for future legal reforms that acknowledged their enduring contributions.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Early 1990s</div>
-            <div class="timeline-content">
-              <h3>Impact of Yugoslavia’s Dissolution</h3>
-              <p>The breakup of Yugoslavia complicated the legal status of many guest workers. Some faced uncertainty over citizenship, leading to cases where individuals applied for asylum or sought a new legal identity in Germany, as their country of origin was dissolving.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Mid to Late 1990s</div>
-            <div class="timeline-content">
-              <h3>Pathways to Permanent Residency</h3>
-              <p>Reforms in German immigration policy began to offer clearer paths to permanent residency and citizenship for long-term guest workers and their families. This transition helped many formalize their status, reflecting their deep-rooted ties in Germany.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2000s</div>
-            <div class="timeline-content">
-              <h3>Integration and Cultural Evolution</h3>
-              <p>The children and grandchildren of the original guest workers increasingly emerged as integral parts of German society. Their dual heritage—combining Yugoslav roots with German cultural integration—became a subject of broader social recognition and policy discussions.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2010s–Present</div>
-            <div class="timeline-content">
-              <h3>Legacy and Ongoing Debates</h3>
-              <p>The legacy of the Yugoslav guest worker experience continues to influence debates on migration, multiculturalism, and integration. Today, descendants of these workers are recognized as vital contributors to Germany’s social and economic fabric, even as questions of identity and historical recognition persist.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- "A Pursuit of Prosperity" Section -->
     <section class="top-text-down-image">
       <div class="text-content">
         <h2>A Pursuit of Prosperity</h2>
@@ -472,7 +309,6 @@
       </div>
     </section>
 
-    <!-- Remaining sections continue below... -->
     <section class="left-text-right-image">
       <div class="text-content">
         <h2>Across a Continent</h2>
@@ -535,10 +371,10 @@
 
     <section class="top-text-down-image">
       <div class="text-content">
-        <h2>A Bittersweet Conclusion</h2>
+        <h2> A Bittersweet Conclusion</h2>
         <p>The Yugoslav guest workers were more than just a solution to West Germany's labor shortage - they were part of a broader historical process that transcended political borders and the ideological divides of the Cold War. While the Yugoslav experience in West Germany was marked by hardship and alienation, it also paved the way for economic and cultural exchanges that enriched both societies. The Gastarbeiter program, and the Yugoslav migration specifically, served as an early example of how migration could both shape and reflect the complexities of Cold War geopolitics. The long-term legacy of these guestworkers is visible today in the multicultural landscape of modern Europe, where migrant labor continues to be integral to economic and social development.</p>
         <p>Through their struggles, resilience, and contributions, workers like Mirjana Petrović not only transformed Germany's industrial landscape but also became an enduring symbol of transnational solidarity in a divided world.</p>
-        <h2>Works Cited</h2>
+        <h2>Works Cited</h3>
         <ul class="citations">
           <li class="citation">"The Breakup of Yugoslavia | Remembering Srebrenica." Remembering Srebrenica, 24 June 2021, srebrenica.org.uk/what-happened/history/breakup-yugoslavia.</li>
           <li class="citation">Flint, AI teaching assistant. "Migration Iron Curtain" Migration Stories: Interactive Historical Analysis, 3 Mar. 2025, Flint. Inc., app.flintk12.com/activity/migration-stori-7c7a5a/session/ae5cec86-67fd-42e7-98ba-55d721b1e43e.</li>
@@ -568,7 +404,7 @@
   
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Add navigation links based on h2 elements in sections
+      // Add navigation links
       const sections = document.querySelectorAll('.content section');
       const navList = document.querySelector('#navbar .menu');
       sections.forEach(section => {
@@ -592,30 +428,25 @@
       const navbar = document.getElementById('navbar');
       const ironCurtainSection = document.getElementById('the-iron-curtain');
       const heroSection = document.getElementById('hero');
+      
       function handleScroll() {
+        // Get positions
         const ironCurtainRect = ironCurtainSection ? ironCurtainSection.getBoundingClientRect() : null;
         const heroRect = heroSection.getBoundingClientRect();
+        
+        // Check if "The Iron Curtain" section is intersecting with hero
         if (ironCurtainRect && heroRect.bottom > ironCurtainRect.top) {
           navbar.style.opacity = '0';
         } else {
           navbar.style.opacity = '1';
         }
       }
-      window.addEventListener('scroll', handleScroll);
-      setTimeout(handleScroll, 1000); // Initial check
       
-      // Timeline animation: reveal timeline items on scroll
-      const timelineItems = document.querySelectorAll('.timeline-item');
-      function checkTimelineItems() {
-        timelineItems.forEach(item => {
-          const rect = item.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 100) {
-            item.classList.add('visible');
-          }
-        });
-      }
-      window.addEventListener('scroll', checkTimelineItems);
-      checkTimelineItems();
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      
+      // Initial check
+      setTimeout(handleScroll, 1000); // Delay to ensure elements are properly rendered
     });
   </script>
 </body>
